@@ -3,14 +3,14 @@
   <rosparam command="load" file="$(find packager_v1)/params/packager_params.yaml" />
 
   <!-- Rosserial TCP Server for Stage 1 (ESP32 Interface)-->
-  <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_1" >
+  <!-- <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_1" >
     <param name="~port" value="11412" type="int" />
-  </node>
+  </node> -->
 
   <!-- Rosserial TCP Server for Stage 3 (ESP32 Interface)-->
-  <!-- <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_3" >
+  <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_3" >
     <param name="~port" value="11411" type="int" />
-  </node> -->
+  </node>
 
   <!-- Leaf PNP ROS package -->
   <!-- <include file="$(find leafpnp_ros)/launch/leafpnp.launch" /> -->
