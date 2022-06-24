@@ -1,0 +1,8 @@
+stage_3:
+  tray:
+    A_speed: 1500       # mm/min (int)
+    B_offset_rls: 1   # In milimeters (int)
+    C_offset_seal: 2      # In milimeters (int)
+    D_offset_dsp: 3  # In milimeters (int)
+    E_offset_rtr: 4    # In milimeters (int)
+    

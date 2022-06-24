@@ -1,0 +1,24 @@
+<launch>
+  <!-- Load Parameters -->
+  <rosparam command="load" file="$(find packager_v1)/params/packager_params.yaml" />
+
+  <!-- Rosserial TCP Server for Stage 1 (ESP32 Interface)-->
+  <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_1" >
+    <param name="~port" value="11412" type="int" />
+  </node>
+
+  <!-- Rosserial TCP Server for Stage 3 (ESP32 Interface)-->
+  <!-- <node pkg="rosserial_server" type="socket_node" name="rosserial_stage_3" >
+    <param name="~port" value="11411" type="int" />
+  </node> -->
+
+  <!-- Leaf PNP ROS package -->
+  <!-- <include file="$(find leafpnp_ros)/launch/leafpnp.launch" /> -->
+
+  <!-- Open Manager Node -->
+  <node name="packager_node" pkg="packager_v1" respawn="True" respawn_delay="1.0" type="packager_node" /> 
+  
+  <!-- Open GUI -->
+  <!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/> -->
+
+</launch>
