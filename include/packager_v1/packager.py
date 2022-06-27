@@ -11,4 +11,5 @@ def start():
     stage_3 = Stage_3()
     while not rospy.is_shutdown():
         pub.publish(stage_3.PrintState())
+        stage_3.Update()
         rate.sleep()

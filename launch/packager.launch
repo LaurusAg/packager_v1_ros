@@ -15,7 +15,7 @@
   <!-- Leaf PNP ROS package -->
   <!-- <include file="$(find leafpnp_ros)/launch/leafpnp.launch" /> -->
 
-  <!-- Open Manager Node -->
+  <!-- Manager Node -->
   <node name="packager_node" pkg="packager_v1" respawn="True" respawn_delay="1.0" type="packager_node" /> 
   
   <!-- Open GUI -->
