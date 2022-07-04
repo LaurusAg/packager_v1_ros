@@ -1,5 +1,5 @@
-from attr import s
 import rospy
+from collections import OrderedDict
 from std_msgs.msg import String, Float64
 from std_srvs.srv import Trigger, SetBool
 from .AuxFuctions import ParseBitfield
@@ -40,7 +40,7 @@ class Stage_3:
         # Callback for ROS subscriber
         def StatusCallback(self, data):
             s = data.data   # data is bitfield as string
-            bit_mapping = {'ls_min': 1, 'enc_seal': 1, 'enc_disp': 1, 'ls_max': 1, 'homed': 1, 'current_pos': 3, 'state': 3}
+            bit_mapping = OrderedDict([('ls_min', 1), ('enc_seal', 1), ('enc_disp', 1), ('ls_max', 1), ('homed', 1), ('current_pos', 3), ('state', 3)])
             vals = ParseBitfield(s, bit_mapping)
             self.ls_min = int(vals['ls_min'])
             self.enc_seal = int(vals['enc_seal'])
@@ -97,7 +97,7 @@ class Stage_3:
         # Callback for ROS subscriber
         def StatusCallback(self, data):
             s = data.data   # data is bitfield as string
-            bit_mapping = {'ls1': 1, 'ls2': 1, 'ls3': 1, 'ls4': 1, 'state': 3}
+            bit_mapping = OrderedDict([('ls1', 1), ('ls2', 1), ('ls3', 1), ('ls4', 1), ('state', 3)])
             vals = ParseBitfield(s, bit_mapping)
             self.ls1 = int(vals['ls1'])
             self.ls2 = int(vals['ls2'])
